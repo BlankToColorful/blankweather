@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<litepal>
+    <daname value="blank_weather"/>
+    <version value="1"/>
+    <list>
+        <mapping class="com.example.blankweather.db.Province"/>
+        <mapping class="com.example.blankweather.db.City"/>
+        <mapping class="com.example.blankweather.db.County"/>
+    </list>
+</litepal>
