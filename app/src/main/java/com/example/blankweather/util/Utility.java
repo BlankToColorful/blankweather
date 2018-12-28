@@ -62,6 +62,12 @@ public class Utility {
         return false;
     }
 
+    /**
+     * 解析和处理服务器返回的县级数据
+     * @param response
+     * @param cityId
+     * @return
+     */
     public static boolean handleCountyResponse(String response,int cityId){
         if (!TextUtils.isEmpty(response)){
             try {
