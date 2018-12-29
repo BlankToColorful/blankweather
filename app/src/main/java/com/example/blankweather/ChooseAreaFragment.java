@@ -16,9 +16,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.blankweather.MainActivity;
-import com.example.blankweather.R;
-import com.example.blankweather.WeatherActivity;
+
 import com.example.blankweather.db.City;
 import com.example.blankweather.db.County;
 import com.example.blankweather.db.Province;
