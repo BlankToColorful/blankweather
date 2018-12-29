@@ -1,4 +1,4 @@
-package com.example.blankweather.service;
+package com.example.blankweather;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import com.example.blankweather.MainActivity;
 import com.example.blankweather.R;
+import com.example.blankweather.WeatherActivity;
 import com.example.blankweather.db.City;
 import com.example.blankweather.db.County;
 import com.example.blankweather.db.Province;
@@ -99,10 +100,18 @@ public class ChooseAreaFragment extends Fragment{
                     queryCounties();
                 }else if (currentLevel == LEVEL_COUNTY){
                     String weatherId = countyList.get(position).getWeatherId();
-                    Intent intent = new Intent(getActivity(), MainActivity.class);
-                    intent.putExtra("weather_id",weatherId);
-                    startActivity(intent);
-                    getActivity().finish();
+                    if (getActivity() instanceof  MainActivity){
+                        Intent intent = new Intent(getActivity(), MainActivity.class);
+                        intent.putExtra("weather_id",weatherId);
+                        startActivity(intent);
+                        getActivity().finish();
+                    }else if (getActivity() instanceof WeatherActivity){
+                        WeatherActivity activity = (WeatherActivity) getActivity();
+                        activity.drawerLayout.closeDrawers();
+                        activity.swipeRefreshLayout.setRefreshing(true);
+                        activity.requestWeather(weatherId);
+
+                    }
                 }
             }
         });
